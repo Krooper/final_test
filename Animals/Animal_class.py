@@ -12,7 +12,8 @@ class Animal:
         return self._name
 
     def show_commands(self):
-        print(self._commands)
+        for command in self._commands:
+            print(command)
 
     def add_command(self, command):
         self._commands.append(command)

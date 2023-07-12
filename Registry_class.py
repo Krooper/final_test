@@ -40,7 +40,7 @@ class Registry:
 
     def show_animals(self):
         for animal_type in self._animals.keys():
-            print(animal_type)
+            print(f"{animal_type}: ")
             self.show_animals_by_type(animal_type)
 
     def pick_type(self):
