@@ -3,6 +3,17 @@ from Animals.PackAnimals.Donkey_class import Donkey
 from Animals.Pets.Dog_class import Dog
 from Animals.Pets.Cat_class import Cat
 from Animals.Pets.Hamster_class import Hamster
+import time
+
+
+def date_check():
+    date = input('Input its date of birth (yyyy-mm-dd): ')
+    try:
+        valid_date = time.strptime(date, '%Y-%m-%d')
+    except ValueError:
+        print('Invalid date! Try again!')
+        return date_check()
+    return valid_date
 
 
 class Registry:
@@ -46,11 +57,11 @@ class Registry:
             animal_subtype = input("Input: ")
         return animal_subtype
 
-    def add_animal(self, animal):
+    def add_animal(self):
         name = input("Input a name for a new animal: ")
-        date_of_birth = input("Input it's date of birth: ")
+        date_of_birth = date_check()
 
-        print("Choose animal type:")
+        print("Choose animal type: ")
         self.show_types()
         animal_type = self.pick_type()
 
@@ -93,3 +104,12 @@ class Registry:
         for animal in self._animals[animal_type]:
             if animal_name == animal.get_name():
                 return animal
+
+    def show_animal_commands(self):
+        animal = self.pick_animal()
+        animal.show_commands()
+
+    def add_command(self):
+        animal = self.pick_animal()
+        new_command = input("Input a new command for animal: ")
+        animal.add_command(new_command)

@@ -12,4 +12,3 @@ class Pet(Animal_class.Animal):
 
     def get_type(self):
         return self._animal_type
-        
