@@ -84,6 +84,7 @@ class Registry:
                 new_animal = Hamster(name, date_of_birth)
 
         self._animals[animal_type].append(new_animal)
+        return new_animal
 
     def pick_animal(self):
         print("Choose animal type:")
