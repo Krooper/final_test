@@ -5,4 +5,9 @@ class Animal:
 
     def display(self):
         print("Name:", self._name)
-        print("Date_of_birth:", self._date_of_birth)
+        print("Date of birth:", self._date_of_birth)
+
+    def get_name(self):
+        return self._name
+
+

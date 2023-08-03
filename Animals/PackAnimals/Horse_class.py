@@ -1,13 +1,17 @@
-import PackAnimal_class
+from Animals.PackAnimals.PackAnimal_class import PackAnimal
 
 
-class Horse(PackAnimal_class.PackAnimal):
-    def __init__(self, name, date_of_birth, animal_type, _commands):
-        super().__init__(name, date_of_birth, animal_type)
+class Horse(PackAnimal):
+    def __init__(self, name, date_of_birth):
+        super().__init__(name, date_of_birth)
         self._commands = ['Neigh']
+        self._subtype = "Horse"
 
     def display(self):
         super().display()
-        print("Commands:\n")
+        print("Commands:")
         for command in self._commands:
-            print(f"{command}\n")
+            print(f"{command}")
+
+    def get_subtype(self):
+        return f"{self._subtype}({self._animal_type})"
